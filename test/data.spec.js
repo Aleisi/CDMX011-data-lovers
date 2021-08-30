@@ -1,54 +1,75 @@
-import {pokemonMock, bulbasaurMock}  from './dataMock.js'
-import {filterByType, alphabeticOrder, filterByGeneration } from '../src/data.js';
+import { pokemonMock, bulbasaurMock } from "./dataMock.js";
+import { filterByType, filterByGeneration, pokemonOrder} from "../src/data.js";
 
-const allPokemon = pokemonMock;
+const pokemones = pokemonMock;
 const grassPokemon = bulbasaurMock;
 
-
-
-describe('filtrado por tipo de pokemon', () => {
-
-  it('test de filtrado por tipo', () => {
-    expect(filterByType(allPokemon, 'grass')).toHaveLength(1);
+describe("Bloque filtrado por tipo de pokemon", () => {
+  it("test de filtrado por tipo", () => {
+    expect(filterByType(pokemones, "grass")).toHaveLength(1);
   });
-  it('test que valida que sea una función', () => {
-    expect(typeof filterByType).toBe('function');
-  })
-  it('debe retornar un pokemon de pasto', () => {
-    expect(filterByType(allPokemon, 'grass')).toEqual(grassPokemon)
-  })
+  it("test que valida que sea una función", () => {
+    expect(typeof filterByType).toBe("function");
+  });
+  it("debe retornar un pokemon de pasto", () => {
+    expect(filterByType(pokemones, "grass")).toEqual(grassPokemon);
+  });
 });
 
 
-describe('filtrado por generación de pokemon', () => {
+describe("filtrado por generación de pokemon", () => {
+
+  it("test que valida que sea una funcion", () => {
+    expect(typeof filterByGeneration).toBe("function");
+  });
+  it("test de filtrado por generación", () => {
+    expect(filterByGeneration(pokemones, "kanto")).toHaveLength(3);
+  });
+  it("debe retornar un pokemon de generacion kanto", () => {
+    expect(grassPokemon).toEqual(bulbasaurMock);
+  });
+  it("test de filtrado por generación", () => {
+    expect(filterByGeneration(pokemones, "johto")).toHaveLength(2);
+  });
   
-  it('test de filtrado por generación', () => {
-    expect(filterByGeneration(allPokemon, 'kanto')).toHaveLength(3);
-  })
-  it('test que valida que sea una funcion', () => {
-    expect(typeof filterByGeneration).toBe('function');
-  })
-  // it('debe retornar un pokemon de generacion kanto', () => {
-  //   expect(filterByGeneration(allPokemon, '')).toEqual(grassPokemon);
-  // })
-})
+}); 
 
 
-
-
-
-describe('filtrado por orden alfabetico pokemon', () => {
-  it('debe retornar pokemones ordenados A-Z', () => {
-    const sortPokemons = alphabeticOrder(allPokemon, 'A-Z');
-    expect(sortPokemons).toHaveLength(3);
-    expect(sortPokemons[0]).toEqual(bulbasaurMock[0]);
-  })
-  it('debe retornar pokemones ordenados Z-A', () => {
-    const sortPokemons = alphabeticOrder(allPokemon, 'Z-A');
-    expect(sortPokemons).toHaveLength(3);
-    expect(sortPokemons[3]).toEqual(bulbasaurMock[3]);
-  })
-  it('', () => {
-    
-  })
+describe('Test para ordenado de la A-Z', () => {
+   
+    it("Es una funcion", () => {
+      expect(typeof pokemonOrder).toBe("function");
+    });
+    it('debe retornar los pokemones ordenados de A-Z', () =>{
+     const sortPokemon = pokemonOrder(pokemones, "A-Z");
+     expect(sortPokemon).toHaveLength(5);
+     expect(sortPokemon[0]).toEqual(bulbasaurMock[0]);
+     expect(sortPokemon[0].name).toBe("bulbasaur");
+    //  expect(sortPokemon[3]).toEqual(squirtleMock[0]);
+   });
+  
 });
+
+
+describe('Test para ordenado de la Z-A', () => {
+  
+   it('debe retornar los pokemones ordenados de Z-A', () =>{
+     const sortPokemon = pokemonOrder(pokemones, "Z-A");
+     expect(sortPokemon).toHaveLength(5);
+     expect(sortPokemon[3]).toEqual(pokemonMock[3]);
+     expect(sortPokemon[0].name).toBe("squirtle");
+    //  expect(sortPokemon[0]).toEqual(squirtleMock[0]);
+
+  });
+  
+});
+
+// describe('Test de ordenado por numero', () => {
+  
+//   it('debe ordenar por número descendente', () =>{
+//      const sortPokemon = pokemonOrder(pokemones, "251-1");
+//        expect(sortPokemon).toHaveLength(4);
+ 
+
+//  });
+// });
