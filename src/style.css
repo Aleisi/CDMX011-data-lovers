@@ -1,6 +1,3 @@
-/* * { 
-  box-sizing: border-box;
-} */
 body {
   background-image: url(imagenes/paisaje_fondo.png);
   background-attachment: fixed;
@@ -25,18 +22,18 @@ body {
 }
 #texto{
   background: crimson;
-    display: flex;
-    height: 60px;
-    justify-content: space-evenly;
-    border: none;
-    color: white;
-    font-family: 'Quicksand', sans-serif;
-    font-size: 14px;
-    text-align: center;
-    font-weight: normal;
-    text-shadow: 3px 0px 0px rgb(11, 48, 116), 0px 2px 0px rgb(11, 48, 116),
-      -2px 0px 0px rgb(11, 48, 116), 0px -2px 0px rgb(11, 48, 116);
-    position:relative;
+  display: flex;
+  height: 60px;
+  justify-content: space-evenly;
+  border: none;
+  color: white;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 15px;
+  text-align: center;
+  font-weight: normal;
+  text-shadow: 3px 0px 0px rgb(11, 48, 116), 0px 2px 0px rgb(11, 48, 116),
+    -2px 0px 0px rgb(11, 48, 116), 0px -2px 0px rgb(11, 48, 116);
+  position:relative;
 }
 
 #types {
@@ -97,14 +94,14 @@ body {
   box-shadow: 1px 2px 1px black;
   position: relative;
 }  
- .container {
+.container {
   display:flex;
   display:inline-block;
   width:20%;
   justify-content:space-between;
 } 
 .box {
-  top:65px;
+  /*top:65px;*/
   margin: 13px;
   height: 330px;
   border-radius: 11px;
@@ -114,14 +111,31 @@ body {
   color: #26CA26;
   text-align: center;
   font-size: 18px;
-  letter-spacing: 0.8px
+  letter-spacing: 0.8px;
+  position: relative;
+  transform-style: preserve-3d;
+  word-wrap: break-word;
 }
-.box:hover {
+.front, .back{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.back {
   background-color: rgb(223, 223, 235) ;
   color: black;
-  transform: scale(1.03);
-  transition: all 1s ease;
+  transform: rotateY(180deg);
+  text-align: center;
+  word-wrap: break-word;
+  font-size: 16px;
 }
+.container:hover .box{
+  transform:rotateY(180deg);
+  transition: all 1s ease; 
+}
+
 footer{
   display:flex;
   background: crimson;
