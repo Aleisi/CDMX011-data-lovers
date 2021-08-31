@@ -63,13 +63,3 @@ describe('Test para ordenado de la Z-A', () => {
   });
   
 });
-
-// describe('Test de ordenado por numero', () => {
-  
-//   it('debe ordenar por número descendente', () =>{
-//      const sortPokemon = pokemonOrder(pokemones, "251-1");
-//        expect(sortPokemon).toHaveLength(4);
- 
-
-//  });
-// });
