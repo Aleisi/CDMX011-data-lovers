@@ -10,17 +10,17 @@ allPokemon.forEach((eachPokemon) => {
   pokemonHtml += `<div class="container">
     <div class="box">
       <div class="front">
-      <h4>${eachPokemon.num + "  " + eachPokemon.name.charAt(0).toUpperCase() + eachPokemon.name.slice(1)}</h4>
-      <img src="${eachPokemon.img}">
-      <p>Peso: ${eachPokemon.size.weight}</p>
-      <p>Altura:  ${eachPokemon.size.height}</p></div>
-      <div class="back">
-      <h4>${eachPokemon.num + "  " + eachPokemon.name.charAt(0).toUpperCase() + eachPokemon.name.slice(1)}</h4>
-      <p>Debilidad: ${eachPokemon.weaknesses}</p>
-      <p>Probabilidad de aparición: ${eachPokemon["spawn-chance"]} %</p>
-      <p>Resistencia: ${eachPokemon.resistant}</p>
+        <h4>${eachPokemon.num + "  " + eachPokemon.name.charAt(0).toUpperCase() + eachPokemon.name.slice(1)}</h4>
+        <img src="${eachPokemon.img}">
+        <p>Peso: ${eachPokemon.size.weight}</p>
+        <p>Altura:  ${eachPokemon.size.height}</p></div>
+        <div class="back">
+        <h4>${eachPokemon.num + "  " + eachPokemon.name.charAt(0).toUpperCase() + eachPokemon.name.slice(1)}</h4>
+        <p>Debilidad: ${eachPokemon.weaknesses}</p>
+        <p>Probabilidad de aparición: ${eachPokemon["spawn-chance"]} %</p>
+        <p>Resistencia: ${eachPokemon.resistant}</p>
+        </div>
       </div>
-    </div>
     </div>`;
 });
 

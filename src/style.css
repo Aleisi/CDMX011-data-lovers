@@ -135,7 +135,6 @@ body {
   transform:rotateY(180deg);
   transition: all 1s ease; 
 }
-
 footer{
   display:flex;
   background: crimson;
